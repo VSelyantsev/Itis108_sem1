@@ -27,6 +27,7 @@ public class Net {
                 content.append(input + "\n");
             }
 
+            connection.disconnect();
             return content;
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -110,8 +111,9 @@ public class Net {
             connection.setRequestProperty("Authorization", "Bearer " + token);
 
             connection.setDoOutput(true);
+            connection.connect();
 
-            String jsonInputString =  "{\"name\":\"Allasani Peddana\", \"email\":\"allasani.peddana@1444455ce.com\", \"status\":\"active\"}";
+            String jsonInputString =  "{\"name\":\"Max Tar\", \"gender\":\"male\", \"email\":\"ax@gmail.com\", \"status\":\"active\"}";
             write(jsonInputString, connection);
 
             connection.getResponseCode();
@@ -155,12 +157,12 @@ public class Net {
     public static void main(String[] args) {
 
         String inputPathForGetAndPostMethods = "https://gorest.co.in/public/v2/users";
-        String inputPathForPutAndDeleteMethod = "https://gorest.co.in/public/v2/users18";
+        String inputPathForPutAndDeleteMethod = "https://gorest.co.in/public/v2/users14";
         String token = "2dd4f8fdc819b70b341f402a3c958fa565d29690724394f3eb4a0e6b6f72860c";
 
         //System.out.println(getMethod(inputPathForGetAndPostMethods));
         //System.out.println(postMethod(inputPathForGetAndPostMethods, token));
-        //System.out.println(putMethod(inputPathForPutAndDeleteMethod, token));
+        System.out.println(putMethod(inputPathForPutAndDeleteMethod, token));
         //System.out.println(deleteMethod(inputPathForPutAndDeleteMethod, token));
 
     }
