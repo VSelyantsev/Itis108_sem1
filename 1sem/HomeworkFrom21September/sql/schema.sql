@@ -38,3 +38,10 @@ create table blockchain (
                             FOREIGN KEY (id_address_main_coin) REFERENCES address (id)
 );
 
+
+create table adr_transaction (
+    address_id bigint,
+    transaction_id bigint,
+    foreign key (address_id) references address (id),
+    foreign key (transaction_id) references transaction (id)
+);
