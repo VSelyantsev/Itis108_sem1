@@ -12,8 +12,8 @@ create table block (
 
 create table address (
                          id serial primary key ,
-                         hash_adr int generated always as identity primary key ,
-                         balance int generated always as identity primary key
+                         hash_adr varchar(80),
+                         balance float
 );
 
 create table transaction (
@@ -27,8 +27,6 @@ create table transaction (
                              value_tr float,
                              fee float,
                              FOREIGN KEY (id_block) REFERENCES block (id),
-                             FOREIGN KEY (id_from) REFERENCES address (hash_adr),
-                             FOREIGN KEY (id_to) REFERENCES address (balance)
 );
 
 
