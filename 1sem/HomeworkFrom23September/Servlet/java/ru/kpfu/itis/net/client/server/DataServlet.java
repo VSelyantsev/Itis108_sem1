@@ -26,12 +26,12 @@ public class DataServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
         session.setAttribute("firstname", name);
-        session.setAttribute("date", date);
+        session.setAttribute("date", dateAsString(date));
 
         session.setMaxInactiveInterval(60 * 60);
 
         Cookie cookieName = new Cookie("firstname", name);
-        Cookie cookieDate = new Cookie("date", date);
+        Cookie cookieDate = new Cookie("date", dateAsString(date));
         resp.addCookie(cookieName);
         resp.addCookie(cookieDate);
 
